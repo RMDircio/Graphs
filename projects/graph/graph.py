@@ -42,9 +42,6 @@ class Graph:
             self.vertices[v1].add(v2)
 
 
-
-
-
     def get_neighbors(self, vertex_id):
         """
         Get all neighbors (edges) of a vertex.
@@ -54,10 +51,23 @@ class Graph:
 
     def bft(self, starting_vertex):
         """
+        BREADTH-FIRST TRAVERSAL
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # use the util.py for stack and queue code :D
+        # create an empty queue and enqueue the starting_vertex
+        # create empty set to track visited vertices
+
+        # while the queue is NOT empty:
+
+            # get current vertex (dequeue from queue)
+            
+            # check if current vertex has not been visited:
+                # print the current vertex
+                # mark the current vertex as visited
+                    # add current vertex to a visited_set
+                # queue up all current vertex's neighbors
 
     def dft(self, starting_vertex):
         """
@@ -77,11 +87,24 @@ class Graph:
 
     def bfs(self, starting_vertex, destination_vertex):
         """
+        BREADTH-FIRST SEARCH (stop when I find something)
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
         breath-first order.
         """
-        pass  # TODO
+        # use the util.py for stack and queue code :D
+        # create an empty queue and enqueue the starting_vertex
+        # create empty set to track visited vertices
+
+        # while the queue is NOT empty:
+
+            # get current vertex (dequeue from queue)
+            
+            # check if current vertex has not been visited:
+                # print the current vertex
+                # mark the current vertex as visited
+                    # add current vertex to a visited_set
+                # queue up all current vertex's neighbors
 
     def dfs(self, starting_vertex, destination_vertex):
         """
