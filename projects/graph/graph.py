@@ -57,16 +57,25 @@ class Graph:
         """
         # use the util.py for queue code :D
         # create an empty queue and enqueue the starting_vertex
+        self.queue = []
+        self.enqueue(self.starting_vertex)
         # create empty set to track visited vertices
+        visited_set = set()
 
         # while the queue is NOT empty:
+        while self.queue is > 0:
 
             # get current vertex (dequeue from queue)
+            current_vertex = self.dequeue(self.queue)
             
             # check if current vertex has not been visited:
+            if current_vertex is not in visited_set:
                 # print the current vertex
+                print(current_vertex)
                 # mark the current vertex as visited
                     # add current vertex to a visited_set
+                    current_vertex = visited_set
+
                 # queue up all current vertex's neighbors
 
     def dft(self, starting_vertex):
@@ -77,16 +86,23 @@ class Graph:
         """
         # use the util.py for stack code :D
         # create an empty stack and add the starting_vertex
+        stack = self.stack.append(starting_vertex) 
         # create empty set to track visited vertices
+        visited_set = set()
 
         # while the stack is NOT empty:
+        while stack is > 0:
 
             # get current vertex (pop from stack)
-            
+            current_vertex = pop(stack)
+
             # check if current vertex has not been visited:
+            if current_vertex is not in visited_set:
                 # print the current vertex
+                print(current_vertex)
                 # mark the current vertex as visited
                     # add current vertex to a visited_set
+                    current_vertex = visited_set
                 # push up all current vertex's neighbors
 
     def dft_recursive(self, starting_vertex):
