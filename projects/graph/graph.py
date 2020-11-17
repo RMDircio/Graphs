@@ -55,7 +55,7 @@ class Graph:
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        # use the util.py for stack and queue code :D
+        # use the util.py for queue code :D
         # create an empty queue and enqueue the starting_vertex
         # create empty set to track visited vertices
 
@@ -71,10 +71,23 @@ class Graph:
 
     def dft(self, starting_vertex):
         """
+        DEPTH-FIRST TRAVERSAL
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # use the util.py for stack code :D
+        # create an empty stack and add the starting_vertex
+        # create empty set to track visited vertices
+
+        # while the stack is NOT empty:
+
+            # get current vertex (pop from stack)
+            
+            # check if current vertex has not been visited:
+                # print the current vertex
+                # mark the current vertex as visited
+                    # add current vertex to a visited_set
+                # push up all current vertex's neighbors
 
     def dft_recursive(self, starting_vertex):
         """
@@ -87,24 +100,33 @@ class Graph:
 
     def bfs(self, starting_vertex, destination_vertex):
         """
-        BREADTH-FIRST SEARCH (stop when I find something)
+        BREADTH-FIRST SEARCH (stop when I find something or can
+        I get from one place to another)
         Return a list containing the shortest path from
         starting_vertex to destination_vertex in
         breath-first order.
         """
         # use the util.py for stack and queue code :D
-        # create an empty queue and enqueue the starting_vertex
+        # create an empty queue and enqueue PATH to the starting_vertex
         # create empty set to track visited vertices
 
         # while the queue is NOT empty:
 
-            # get current vertex (dequeue from queue)
+            # get current vertex PATH (dequeue from queue)
+            # set current vertex to the last element of PATH
             
             # check if current vertex has not been visited:
-                # print the current vertex
+                # Check if current vertex is destination
+                    # if true - stop and return vertex
+
                 # mark the current vertex as visited
                     # add current vertex to a visited_set
                 # queue up all current vertex's neighbors
+
+                # queue up NEW PATHS with each neighbor
+                    # take current PATH
+                    # append neighbor
+                    # queue up NEW PATH
 
     def dfs(self, starting_vertex, destination_vertex):
         """
