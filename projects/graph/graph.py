@@ -63,47 +63,47 @@ class Graph:
         visited_set = set()
 
         # while the queue is NOT empty:
-        while self.queue is > 0:
+        while self.queue.size() > 0:
 
             # get current vertex (dequeue from queue)
             current_vertex = self.dequeue(self.queue)
             
             # check if current vertex has not been visited:
-            if current_vertex is not in visited_set:
+            if current_vertex is not visited_set:
                 # print the current vertex
                 print(current_vertex)
                 # mark the current vertex as visited
                     # add current vertex to a visited_set
-                    current_vertex = visited_set
+                current_vertex = visited_set
 
                 # queue up all current vertex's neighbors
 
-    def dft(self, starting_vertex):
-        """
-        DEPTH-FIRST TRAVERSAL
-        Print each vertex in depth-first order
-        beginning from starting_vertex.
-        """
-        # use the util.py for stack code :D
-        # create an empty stack and add the starting_vertex
-        stack = self.stack.append(starting_vertex) 
-        # create empty set to track visited vertices
-        visited_set = set()
+    # def dft(self, starting_vertex):
+    #     """
+    #     DEPTH-FIRST TRAVERSAL
+    #     Print each vertex in depth-first order
+    #     beginning from starting_vertex.
+    #     """
+    #     # use the util.py for stack code :D
+    #     # create an empty stack and add the starting_vertex
+    #     stack = self.stack.append(starting_vertex) 
+    #     # create empty set to track visited vertices
+    #     visited_set = set()
 
-        # while the stack is NOT empty:
-        while stack is > 0:
+    #     # while the stack is NOT empty:
+    #     while stack.size() is > 0:
 
-            # get current vertex (pop from stack)
-            current_vertex = pop(stack)
+    #         # get current vertex (pop from stack)
+    #         current_vertex = pop(stack)
 
-            # check if current vertex has not been visited:
-            if current_vertex is not in visited_set:
-                # print the current vertex
-                print(current_vertex)
-                # mark the current vertex as visited
-                    # add current vertex to a visited_set
-                    current_vertex = visited_set
-                # push up all current vertex's neighbors
+    #         # check if current vertex has not been visited:
+    #         if current_vertex is not in visited_set:
+    #             # print the current vertex
+    #             print(current_vertex)
+    #             # mark the current vertex as visited
+    #                 # add current vertex to a visited_set
+    #                 current_vertex = visited_set
+    #             # push up all current vertex's neighbors
 
     def dft_recursive(self, starting_vertex):
         """
@@ -124,25 +124,52 @@ class Graph:
         """
         # use the util.py for stack and queue code :D
         # create an empty queue and enqueue PATH to the starting_vertex
+        queue = Queue()
+        visited_vertices = set()
         # create empty set to track visited vertices
+        # queue.enqueue([starting_vertex])
+        # making a dictionary here for fun (same result as code line above)
+        queue.enqueue({
+            'current_vertex' : starting_vertex,
+            'path' : [starting_vertex]
+        })
 
         # while the queue is NOT empty:
+        while queue.size() > 0:
 
             # get current vertex PATH (dequeue from queue)
+            current_obj = queue.dequeue()
+            current_path = current_obj['path']
+            current_vertex = current_obj['current_vertex'] # most important
+
             # set current vertex to the last element of PATH
             
             # check if current vertex has not been visited:
+            if current_vertex not in visited_vertices:
+                
                 # Check if current vertex is destination
-                    # if true - stop and return vertex
+                # if true - stop and return vertex
+                if current_vertex == destination_vertex:
+                    return current_path
 
                 # mark the current vertex as visited
-                    # add current vertex to a visited_set
-                # queue up all current vertex's neighbors
+                # add current vertex to a visited_set
+                visited_vertices.add(current_vertex)
 
+                # queue up all current vertex's neighbors
+                # start looking for the neighbors of current_vertex
+                for neighbor_vertex in self.get_neighbors(current_vertex):
                 # queue up NEW PATHS with each neighbor
                     # take current PATH
                     # append neighbor
                     # queue up NEW PATH
+                    new_path = list(current_path) # set up new path via current path
+                    new_path.append(neighbor_vertex) # add to new path list
+                    
+                    queue.enqueue({
+                        'current_vertex' : neighbor_vertex,
+                        'path' : new_path
+                    })
 
     def dfs(self, starting_vertex, destination_vertex):
         """
@@ -221,7 +248,8 @@ if __name__ == '__main__':
     Valid BFS path:
         [1, 2, 4, 6]
     '''
-    # print(graph.bfs(1, 6))
+    # what is the path from 1 --> 6?
+    print(graph.bfs(1, 6)) # this does :D
 
     '''
     Valid DFS paths:
