@@ -124,7 +124,36 @@ class Graph:
 
 
     # searching the graph
-    def bfs(self, starting_vertex_id):
+    def bfs(self, starting_vertex_id, target_vertex_id):
+        '''
+        This algorithm does Breadth First Search unitl the goal vertex
+        is found. Returns an array of vertex IDs that are part of the PATH.
+        '''
+        # create an empty queue and ADD a PATH to starting vertex
+        # in other words - add array [1] to the queue
+        
+
+        # create a visited set of verticies
+
+        # while queue is NOT empty
+            # dequeue the current PATH from the queue
+
+
+            # get the current vertex to analyze from the PATH
+            # use the vertex at the END of the PATH array
+
+            # if vertex has not been visited
+                # add vertex to visited list
+
+                # check if current vertex is the target vertex
+                    # found the vertex and the PATH to it
+                    # return the PATH
+
+                # for each neighbor of the current vertex
+                    # add the PATH to that neighbor to the queue
+                        # COPY  the current PATH
+                        # add neightbor to the new path
+                        # add the whole PATH to the queue
         pass
 
 
