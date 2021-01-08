@@ -123,7 +123,7 @@ class Graph:
                     stack.append(neighbor)
 
 
-    # searching the graph
+    # searching the graph - completed in Day2.py
     def bfs(self, starting_vertex_id, target_vertex_id):
         '''
         This algorithm does Breadth First Search unitl the goal vertex
